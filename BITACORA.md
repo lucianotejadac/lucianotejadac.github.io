@@ -85,3 +85,11 @@ y la exclusión de responsabilidad clínica.
 **Consecuencias.** Cualquiera puede reutilizar, modificar y redistribuir los simuladores,
 incluso con fines comerciales, siempre que conserve el aviso de copyright. El pie de esta
 página, «Código abierto», ahora es exacto. Los simuladores nuevos deben nacer con LICENSE MIT.
+
+## 2026-10-03 · Manifiesto
+
+**Contexto.** Tras pasar todo a MIT, el usuario pidió un manifiesto que explique la decisión desde la pedagogía del error y Gert Biesta: el uso comercial del simulador le da lo mismo porque la herramienta no es lo fundamental en la educación.
+
+**Decisión.** Página propia `manifiesto.html` con la misma estética, enlazada desde la cabecera y el pie del índice. Cinco partes: el error como material de trabajo (Astolfi, De la Torre), los tres propósitos de Biesta y la crítica a la «learnificación», el bello riesgo de educar, por qué se permite el uso comercial y tres pedidos no obligatorios a quienes lo usen. Referencias al final. Redactado en primera persona del usuario y en «ustedes».
+
+**Consecuencias.** El texto es una propuesta del asistente; el usuario puede reescribirlo directamente en el HTML.

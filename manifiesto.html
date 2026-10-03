@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Manifiesto · Simuladores de Medicina Nuclear</title>
+<meta name="description" content="Por qué estos simuladores son libres: pedagogía del error, Gert Biesta y el lugar de la herramienta en la educación.">
+<style>
+  :root{
+    --face:#c0c0c0; --hi:#ffffff; --lt:#dfdfdf; --sh:#808080; --dk:#404040;
+    --navy:#000080; --blue:#1084d0; --ink:#000000;
+    --font:Tahoma,"MS Sans Serif",Verdana,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--face); color:var(--ink); font:14px/1.6 var(--font); -webkit-font-smoothing:none}
+  a{color:var(--navy)}
+  .wrap{max-width:780px; margin:0 auto; padding:0 16px}
+  .btn{
+    display:inline-block; font:13px/1.4 var(--font); color:var(--ink); background:var(--face); padding:4px 14px; cursor:pointer;
+    text-decoration:none; white-space:nowrap;
+    border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt);
+  }
+  .btn:active{border-color:var(--dk) var(--hi) var(--hi) var(--dk); box-shadow:inset 1px 1px var(--sh), inset -1px -1px var(--lt)}
+  .btn:focus-visible{outline:1px dotted #000; outline-offset:-6px}
+
+  header{background:linear-gradient(90deg,var(--navy),var(--blue)); color:#fff; border-bottom:2px solid var(--dk)}
+  header .wrap{padding-top:22px; padding-bottom:22px}
+  header h1{margin:0; font:bold clamp(22px,4.5vw,32px)/1.1 var(--font); letter-spacing:.5px; text-shadow:2px 2px #000}
+  header p{margin:8px 0 0; color:#dfe8ff; font-size:14px}
+
+  .nav{padding:14px 0 0}
+  .doc{
+    margin:14px 0 0; padding:22px 26px; background:#fff;
+    border:2px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); box-shadow:inset 1px 1px var(--dk), inset -1px -1px var(--lt);
+  }
+  .doc h2{margin:26px 0 8px; font-size:15px; color:var(--navy); display:flex; gap:10px; align-items:baseline}
+  .doc h2:first-child{margin-top:0}
+  .doc h2 .n{
+    flex:none; display:inline-grid; place-items:center; width:24px; height:22px; color:#fff; background:var(--navy);
+    font:bold 12px/1 "Courier New",monospace; border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi);
+  }
+  .doc p{margin:0 0 12px; max-width:68ch}
+  .doc ul{margin:0 0 12px; padding-left:22px; max-width:66ch}
+  .doc li{margin-bottom:4px}
+  .firma{margin-top:22px; padding-top:12px; border-top:1px solid var(--sh); box-shadow:0 1px 0 var(--hi) inset}
+  .refs{margin:16px 0 0; padding:14px 18px; font-size:12.5px; line-height:1.5;
+    border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt)}
+  .refs h3{margin:0 0 8px; font-size:13px}
+  .refs p{margin:0 0 6px; padding-left:22px; text-indent:-22px}
+  footer{margin:24px 0 0; padding:14px 0 24px; border-top:1px solid var(--sh); font-size:12px}
+  @media (max-width:520px){ .doc{padding:16px 14px} body{font-size:13.5px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Manifiesto</h1>
+    <p>Por qué estos simuladores son libres, y por qué eso no le quita nada a la educación.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="nav"><a class="btn" href="./">« Volver a los simuladores</a></div>
+
+  <article class="doc">
+    <h2><span class="n">1</span>Equivocarse aquí no cuesta nada</h2>
+    <p>En un servicio de medicina nuclear, un error de posicionamiento obliga a repetir un estudio, irradia de nuevo a una persona o retrasa un diagnóstico. En un simulador, ese mismo error es material de trabajo. Estos simuladores existen para que ustedes se equivoquen donde equivocarse no daña a nadie: que elijan el filtro que no corresponde, que dibujen mal una región de interés, que acerquen el detector hasta chocar con la camilla.</p>
+    <p>La pedagogía del error, desde Jean-Pierre Astolfi hasta Saturnino de la Torre, propone dejar de tratar el error como una falta que se castiga y leerlo como una señal de cómo está pensando quien lo comete. Un error bien mirado enseña más que un acierto por casualidad. Por eso estos simuladores no esconden las consecuencias: las muestran, y dejan que se vuelva a intentar.</p>
+
+    <h2><span class="n">2</span>Educar no es solo producir aprendizajes</h2>
+    <p>Gert Biesta advierte sobre lo que llama la «learnificación» de la educación: reducirla a aprendizajes medibles, como si quien estudia fuera un cliente y quien enseña, un proveedor. Frente a eso, Biesta propone preguntar para qué educamos, y distingue tres propósitos que siempre están en juego:</p>
+    <ul>
+      <li><b>Calificación:</b> saber hacer. Reconstruir un SPECT, calcular una función renal relativa, programar una adquisición.</li>
+      <li><b>Socialización:</b> entrar en una profesión, con su lenguaje, sus normas y sus maneras de cuidar.</li>
+      <li><b>Subjetivación:</b> llegar a ser alguien que responde por lo que hace, y no solo alguien que ejecuta lo que se le indica.</li>
+    </ul>
+    <p>Un simulador puede apoyar bien lo primero, algo de lo segundo y casi nada de lo tercero por sí solo. Lo tercero ocurre en la conversación: cuando alguien defiende por qué eligió ese filtro, cuando una compañera ve otra cosa en la misma imagen, cuando el docente pregunta en lugar de corregir.</p>
+
+    <h2><span class="n">3</span>El riesgo es parte de educar</h2>
+    <p>Biesta habla del «bello riesgo» de la educación. Educar no es una máquina que transforma insumos en resultados garantizados. Si lo fuera, no habría encuentro entre personas, solo entrenamiento. Estos simuladores aceptan ese riesgo: no entregan la respuesta antes de tiempo, admiten caminos distintos y dejan que el error ocurra para que después se pueda conversar sobre él.</p>
+
+    <h2><span class="n">4</span>Por qué pueden llevárselos, incluso para venderlos</h2>
+    <p>Todo el código está bajo licencia MIT. Cualquiera puede copiarlo, modificarlo y usarlo, también con fines comerciales, con la sola condición de conservar el aviso de autoría.</p>
+    <p>Lo decidí así porque el simulador no es lo fundamental. Es una herramienta, como un fantoma o una calculadora. Lo que educa es lo que pasa alrededor de ella: la pregunta hecha en el momento justo, el error que se discute en vez de borrarse, el caso que se mira entre varios, la responsabilidad que cada uno asume frente a un paciente. Nada de eso se puede copiar desde un repositorio ni vender con una licencia.</p>
+    <p>Si alguien toma este código y lo comercializa, se lleva la herramienta. El acto de educar se queda donde ocurre: en una sala, entre personas. Y si en otro lugar el simulador ayuda a que alguien se equivoque sin dañar a un paciente, entonces cumplió su propósito, lo haya pagado quien lo haya pagado.</p>
+
+    <h2><span class="n">5</span>Lo único que pido</h2>
+    <p>Nada obligatorio más allá de la licencia. Pero si usan estos simuladores con estudiantes, les pido tres cosas:</p>
+    <ul>
+      <li>Dejen que se equivoquen.</li>
+      <li>Pregunten antes de corregir.</li>
+      <li>Usen el error como el comienzo de una conversación, no como el cierre de una nota.</li>
+    </ul>
+
+    <p class="firma">Luciano Tejada Castro<br>Departamento de Tecnología Médica, Universidad de Chile<br>Octubre de 2026</p>
+  </article>
+
+  <section class="refs">
+    <h3>Referencias</h3>
+    <p>Astolfi, J.-P. (1999). <i>El «error», un medio para enseñar</i>. Díada.</p>
+    <p>Biesta, G. (2010). <i>Good Education in an Age of Measurement: Ethics, Politics, Democracy</i>. Paradigm.</p>
+    <p>Biesta, G. (2013). <i>The Beautiful Risk of Education</i>. Paradigm. Edición en español: <i>El bello riesgo de educar</i>. SM, 2017.</p>
+    <p>Biesta, G. (2017). <i>The Rediscovery of Teaching</i>. Routledge.</p>
+    <p>De la Torre, S. (2004). <i>Aprender de los errores: el tratamiento didáctico de los errores como estrategia de innovación</i>. Magisterio del Río de la Plata.</p>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Licencia MIT · <a href="https://github.com/lucianotejadac">github.com/lucianotejadac</a></div>
+</footer>
+</body>
+</html>
