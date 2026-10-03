@@ -14,3 +14,8 @@ propio repositorio con GitHub Pages; esta página solo los enlaza y los agrupa p
 4. Hacer commit y push a `main`; Pages se reconstruye solo.
 
 Las versiones de revisión (por ejemplo `cardiaco-movil-dev`) no se listan aquí.
+
+## Licencia
+
+© 2026 Luciano Tejada Castro. Distribuido bajo licencia [MIT](LICENSE).
+Los componentes y datos de terceros conservan sus propias licencias, indicadas en este documento o junto a ellos.
