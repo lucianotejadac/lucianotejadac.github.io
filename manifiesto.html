@@ -5,64 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Manifiesto · Simuladores de Medicina Nuclear</title>
 <meta name="description" content="Por qué estos simuladores son libres: pedagogía del error, Gert Biesta y el lugar de la herramienta en la educación.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
 <style>
   :root{
     --face:#c0c0c0; --hi:#ffffff; --lt:#dfdfdf; --sh:#808080; --dk:#404040;
-    --navy:#000080; --blue:#1084d0; --ink:#000000;
-    --font:Tahoma,"MS Sans Serif",Verdana,Arial,sans-serif;
+    --navy:#000080; --link:#0000ee; --gold:#ffe600;
+    --comic:"Comic Sans MS","Comic Neue","Chalkboard SE",cursive;
+    --sans:Verdana,Tahoma,Geneva,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0}
-  body{background:var(--face); color:var(--ink); font:14px/1.6 var(--font); -webkit-font-smoothing:none}
-  a{color:var(--navy)}
-  .wrap{max-width:780px; margin:0 auto; padding:0 16px}
-  .btn{
-    display:inline-block; font:13px/1.4 var(--font); color:var(--ink); background:var(--face); padding:4px 14px; cursor:pointer;
-    text-decoration:none; white-space:nowrap;
-    border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt);
-  }
-  .btn:active{border-color:var(--dk) var(--hi) var(--hi) var(--dk); box-shadow:inset 1px 1px var(--sh), inset -1px -1px var(--lt)}
-  .btn:focus-visible{outline:1px dotted #000; outline-offset:-6px}
-
-  header{background:linear-gradient(90deg,var(--navy),var(--blue)); color:#fff; border-bottom:2px solid var(--dk)}
-  header .wrap{padding-top:22px; padding-bottom:22px}
-  header h1{margin:0; font:bold clamp(22px,4.5vw,32px)/1.1 var(--font); letter-spacing:.5px; text-shadow:2px 2px #000}
-  header p{margin:8px 0 0; color:#dfe8ff; font-size:14px}
-
-  .nav{padding:14px 0 0}
-  .doc{
-    margin:14px 0 0; padding:22px 26px; background:#fff;
-    border:2px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); box-shadow:inset 1px 1px var(--dk), inset -1px -1px var(--lt);
-  }
-  .doc h2{margin:26px 0 8px; font-size:15px; color:var(--navy); display:flex; gap:10px; align-items:baseline}
+  body{color:#000; font:14px/1.6 var(--sans); background-color:#0a1a4f;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><g fill='white'><rect x='20' y='14' width='1' height='7'/><rect x='17' y='17' width='7' height='1'/><rect x='120' y='40' width='1' height='5'/><rect x='118' y='42' width='5' height='1'/><rect x='70' y='110' width='1' height='7'/><rect x='67' y='113' width='7' height='1'/><rect x='155' y='140' width='1' height='5'/><rect x='153' y='142' width='5' height='1'/><circle cx='45' cy='70' r='.8'/><circle cx='95' cy='20' r='.6'/><circle cx='150' cy='90' r='.8'/><circle cx='10' cy='150' r='.6'/><circle cx='110' cy='165' r='.7'/><circle cx='170' cy='10' r='.6'/><circle cx='60' cy='40' r='.5'/><circle cx='135' cy='120' r='.5'/></g></svg>");}
+  a{color:var(--link)}
+  .wrap{max-width:720px; margin:0 auto; padding:0 16px}
+  .btn{display:inline-block; padding:5px 12px; background:var(--face); color:var(--link) !important; font:bold 11.5px var(--sans); text-transform:uppercase; text-decoration:underline;
+    border:3px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt), 0 0 0 1px #3d6bff}
+  .btn:active{border-color:var(--dk) var(--hi) var(--hi) var(--dk)}
+  header{text-align:center; padding:22px 16px 0}
+  .marquee-box{margin:0 auto; max-width:500px; border:4px double var(--face); background:rgba(0,0,40,.85); padding:10px 12px 10px}
+  .tagline{margin:0; font:italic 13px/1.3 "Times New Roman",Times,serif; letter-spacing:4px; color:var(--gold); text-transform:uppercase}
+  header h1{margin:6px 0 4px; font:700 clamp(30px,7vw,44px)/1.05 var(--comic); letter-spacing:2px; text-shadow:2px 2px 0 #000}
+  header p.sub{margin:0; font:bold 12px var(--comic); color:#7fe3ff}
+  .rainbow-hr{height:3px; margin:16px auto 0; max-width:520px; background:linear-gradient(90deg,transparent,#ff2a2a,#ff9a00,#ffe600,#3cff3c,#00e5ff,#3d6bff,#c04dff,transparent)}
+  .nav{padding:16px 0 0; text-align:center}
+  .doc{margin:16px 0 0; padding:22px 26px; background:var(--face);
+    border:3px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt)}
+  .doc h2{margin:26px 0 8px; font:700 18px var(--comic); color:var(--navy); display:flex; gap:10px; align-items:baseline}
   .doc h2:first-child{margin-top:0}
-  .doc h2 .n{
-    flex:none; display:inline-grid; place-items:center; width:24px; height:22px; color:#fff; background:var(--navy);
-    font:bold 12px/1 "Courier New",monospace; border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi);
-  }
-  .doc p{margin:0 0 12px; max-width:68ch}
-  .doc ul{margin:0 0 12px; padding-left:22px; max-width:66ch}
+  .doc h2 .n{flex:none; display:inline-grid; place-items:center; width:26px; height:24px; color:var(--gold); background:var(--navy); font:bold 13px/1 "Courier New",monospace; border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi)}
+  .doc p{margin:0 0 12px}
+  .doc ul{margin:0 0 12px; padding-left:22px}
   .doc li{margin-bottom:4px}
-  .firma{margin-top:22px; padding-top:12px; border-top:1px solid var(--sh); box-shadow:0 1px 0 var(--hi) inset}
-  .refs{margin:16px 0 0; padding:14px 18px; font-size:12.5px; line-height:1.5;
-    border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt)}
-  .refs h3{margin:0 0 8px; font-size:13px}
+  .firma{margin-top:22px; padding-top:12px; border-top:2px groove var(--hi); font-family:var(--comic); font-weight:bold}
+  .refs{margin:16px 0 0; padding:14px 18px; font-size:12px; line-height:1.5; color:#dfe8ff; background:rgba(0,0,40,.85); border:4px double var(--face)}
+  .refs h3{margin:0 0 8px; font:700 15px var(--comic); color:var(--gold)}
   .refs p{margin:0 0 6px; padding-left:22px; text-indent:-22px}
-  footer{margin:24px 0 0; padding:14px 0 24px; border-top:1px solid var(--sh); font-size:12px}
+  footer{margin:24px 0 0; padding:14px 0 30px; text-align:center; font-size:11px; color:#9ab}
+  footer a{color:#9ab8ff}
   @media (max-width:520px){ .doc{padding:16px 14px} body{font-size:13.5px} }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="wrap">
-    <h1>Manifiesto</h1>
-    <p>Por qué estos simuladores son libres, y por qué eso no le quita nada a la educación.</p>
+  <div class="marquee-box">
+    <p class="tagline">Equivócate. Aprende. Vuelve a intentar.</p>
+    <h1 aria-label="Manifiesto"><span style="color:#ff2a2a">M</span><span style="color:#ff9a00">A</span><span style="color:#ffe600">N</span><span style="color:#3cff3c">I</span><span style="color:#00e5ff">F</span><span style="color:#3d6bff">I</span><span style="color:#c04dff">E</span><span style="color:#ff4fd8">S</span><span style="color:#ff2a2a">T</span><span style="color:#ff9a00">O</span><span style="color:#ffe600">!</span></h1>
+    <p class="sub">Por qué estos simuladores son libres, y por qué eso no le quita nada a la educación.</p>
   </div>
+  <div class="rainbow-hr" aria-hidden="true"></div>
 </header>
 
 <main class="wrap">
-  <div class="nav"><a class="btn" href="./">« Volver a los simuladores</a></div>
+  <div class="nav"><a class="btn" href="./">◄ Volver a los simuladores</a></div>
 
   <article class="doc">
     <h2><span class="n">1</span>Equivocarse aquí no cuesta nada</h2>

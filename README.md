@@ -9,9 +9,12 @@ propio repositorio con GitHub Pages; esta página solo los enlaza y los agrupa p
 ## Agregar un simulador
 
 1. Publicar el repositorio del simulador en Pages (rama `main`, raíz).
-2. Copiar un bloque `<div class="card raised …">` dentro de la sección que corresponda en `index.html`.
-3. Ajustar `data-href`, el `href` del botón Abrir, el icono, título, descripción, etiqueta y `data-tags` (palabras para el buscador, sin tildes obligatorias).
-4. Hacer commit y push a `main`; Pages se reconstruye solo.
+2. Copiar una línea `<li class="item …">` dentro de la sección que corresponda en `index.html`.
+3. Ajustar `data-href`, el enlace, el icono, título, etiqueta, descripción y `data-tags` (palabras para el buscador).
+4. Para destacarlo, agregar `<span class="new">¡NUEVO!</span>` después del enlace y cambiar el banner superior.
+5. Hacer commit y push a `main`; Pages se reconstruye solo. El contador LED se calcula solo.
+
+El collage de `img/collage.jpg` sale del caso demo público de cintigrafía ósea (CMB-PCA, CC BY 4.0); su cita está en el pie de página.
 
 Las versiones de revisión (por ejemplo `cardiaco-movil-dev`) no se listan aquí.
 

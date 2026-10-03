@@ -93,3 +93,26 @@ página, «Código abierto», ahora es exacto. Los simuladores nuevos deben nace
 **Decisión.** Página propia `manifiesto.html` con la misma estética, enlazada desde la cabecera y el pie del índice. Cinco partes: el error como material de trabajo (Astolfi, De la Torre), los tres propósitos de Biesta y la crítica a la «learnificación», el bello riesgo de educar, por qué se permite el uso comercial y tres pedidos no obligatorios a quienes lo usen. Referencias al final. Redactado en primera persona del usuario y en «ustedes».
 
 **Consecuencias.** El texto es una propuesta del asistente; el usuario puede reescribirlo directamente en el HTML.
+
+## 2026-10-03 · Estética de sitio web noventero
+
+**Contexto.** El usuario mostró como referencia el sitio promocional de *Captain Marvel*, una
+réplica de una página web de 1995, y pidió un diseño como ese.
+
+**Decisión.** Columna central angosta sobre un fondo estrellado con destellos. Arriba va un
+banner que anuncia el demo óseo y un ícono de correo. Sigue un collage enlazado, un recuadro
+con lema y título arcoíris en Comic Sans, botones grises biselados con texto azul subrayado
+por sección, un botón con boletos de 99mTc, un recuadro hacia el manifiesto y un contador LED.
+Los simuladores se listan debajo, por sección, en filas grises biseladas con buscador. A los
+costados flotan un cabezal de gammacámara y un átomo. El manifiesto adopta el mismo fondo,
+recuadro de título y panel gris.
+
+**Decisiones de contenido.**
+- El collage usa imágenes del caso demo público (CMB-PCA, CC BY 4.0), recortadas y con
+  paletas de color de medicina nuclear. No se usan imágenes de la película ni de personas.
+- El contador LED muestra el número real de simuladores, no visitas inventadas.
+- El lema propio es «Equivócate. Aprende. Vuelve a intentar.», en línea con el manifiesto.
+
+**Consecuencias.** Las animaciones se apagan con `prefers-reduced-motion`. Los sprites
+laterales se ocultan bajo 900 px de ancho. El generador que convirtió las tarjetas no queda
+en el repo: las filas nuevas se agregan a mano, según el README.
