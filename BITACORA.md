@@ -62,3 +62,26 @@ dos o tres letras en un color de la paleta de 16 colores según el área.
 
 **Consecuencias.**
 - La página ya no tiene ningún elemento que parezca interactivo sin serlo.
+
+## 2026-10-03 · Licencia MIT en todos los repositorios
+
+**Contexto.** Solo `simulador-atenuacion-rx` tenía licencia abierta (MIT). Otros 17 repos
+no tenían licencia, lo que por defecto equivale a todos los derechos reservados.
+`simulador-gantry-3d` tenía una reserva de derechos explícita. El simulador cardíaco
+SPECT/CT, el de marcaje, el de Compton, el de control de calidad del eluido y el del
+generador también la declaraban en su HTML y en el README. El usuario pidió pasar todo a MIT.
+
+**Decisión.** Se agregó un LICENSE con el texto MIT estándar, a nombre de Luciano Tejada
+Castro, 2026, en los 19 repos que no lo tenían. Los avisos de «Todos los derechos
+reservados» y de la Ley 17.336 se cambiaron por «Licencia MIT»: comentarios de cabecera,
+metadatos, diálogo «Derechos de autor», pies de página, README y AVISO-LEGAL. Los READMEs
+sin sección de licencia recibieron una al final.
+
+**Se conservó.** Los avisos de terceros: Three.js, Planck.js, dicom-parser y Chart.js
+(MIT), el modelo de Quaternius (CC0) y las imágenes de TCIA (CC BY 4.0). Esos componentes
+siguen bajo sus propias licencias. También se conservaron la advertencia de uso educativo
+y la exclusión de responsabilidad clínica.
+
+**Consecuencias.** Cualquiera puede reutilizar, modificar y redistribuir los simuladores,
+incluso con fines comerciales, siempre que conserve el aviso de copyright. El pie de esta
+página, «Código abierto», ahora es exacto. Los simuladores nuevos deben nacer con LICENSE MIT.
