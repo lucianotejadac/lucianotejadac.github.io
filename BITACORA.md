@@ -44,3 +44,21 @@ tareas con reloj y diálogo "Acerca de" en el menú "?". Paleta y tipografía to
   para no cortar el texto; en escritorio se mantiene la proporción.
 - La captura con `chrome --headless --screenshot --window-size=390` no reproduce un
   viewport móvil real; para revisar el móvil se usa Playwright con el Chrome instalado.
+
+## 2026-10-03 · Solo estética de PC de los 90, sin simular programas
+
+**Contexto.** La versión anterior imitaba una ventana de PowerPoint con barra de título,
+menús, barra de tareas y diapositivas. El usuario pidió quitar toda simulación de
+programas o ventanas y conservar solo la estética de PC noventera.
+
+**Decisión.** Fondo gris #c0c0c0, cabecera con degradado azul marino, tipografía Tahoma,
+botones y tarjetas con bisel en relieve, descripciones en paneles hundidos blancos y
+secciones como cuadros de grupo con leyenda. Cada simulador lleva un icono cuadrado con
+dos o tres letras en un color de la paleta de 16 colores según el área.
+
+**Alternativas descartadas.**
+- Ventana, menús, barra de tareas, diálogo «Acerca de» y vista de diapositivas: eran
+  simulación de programas, justo lo que se pidió evitar.
+
+**Consecuencias.**
+- La página ya no tiene ningún elemento que parezca interactivo sin serlo.

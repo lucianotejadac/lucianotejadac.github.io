@@ -7,345 +7,276 @@
 <meta name="description" content="Índice de simuladores docentes de medicina nuclear, física de radiaciones y radiofarmacia publicados en GitHub Pages.">
 <style>
   :root{
-    --desk:#008080; --face:#c0c0c0; --hi:#ffffff; --lt:#dfdfdf; --sh:#808080; --dk:#404040; --black:#000000;
-    --title1:#000080; --title2:#1084d0; --ink:#000000; --muted:#404040;
-    --slide1:#000050; --slide2:#1a3f9e; --slide-title:#ffff66; --slide-text:#ffffff;
-    --font:Tahoma,"MS Sans Serif",Arial,sans-serif;
+    --face:#c0c0c0; --hi:#ffffff; --lt:#dfdfdf; --sh:#808080; --dk:#404040;
+    --navy:#000080; --blue:#1084d0; --teal:#008080; --ink:#000000;
+    --font:Tahoma,"MS Sans Serif",Verdana,Arial,sans-serif;
   }
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
-    background:var(--desk);
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='4' height='4'><rect width='4' height='4' fill='%23008080'/><rect width='1' height='1' fill='%23007070'/></svg>");
-    color:var(--ink); font:12px/1.35 var(--font); padding:16px; min-height:100vh;
+    background:var(--face); color:var(--ink); font:13px/1.4 var(--font);
     -webkit-font-smoothing:none;
   }
-  a{color:inherit}
-  /* ---- bevels ---- */
-  .raised{background:var(--face); border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt)}
-  .sunken{background:var(--hi); border:2px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); box-shadow:inset 1px 1px var(--dk), inset -1px -1px var(--lt)}
+  a{color:var(--navy)}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 16px}
+
+  /* relieves */
+  .raised{border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt); background:var(--face)}
+  .sunken{border:2px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); box-shadow:inset 1px 1px var(--dk), inset -1px -1px var(--lt); background:#fff}
   .btn{
-    display:inline-block; font:inherit; color:var(--ink); background:var(--face); padding:3px 10px; cursor:pointer; text-decoration:none; user-select:none;
+    display:inline-block; font:inherit; color:var(--ink); background:var(--face); padding:4px 14px; cursor:pointer;
+    text-decoration:none; white-space:nowrap; user-select:none;
     border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt);
   }
-  .btn:active, .btn.pressed{border-color:var(--dk) var(--hi) var(--hi) var(--dk); box-shadow:inset 1px 1px var(--sh), inset -1px -1px var(--lt); padding:4px 9px 2px 11px}
-  .btn:focus-visible{outline:1px dotted var(--black); outline-offset:-5px}
+  .btn:active{border-color:var(--dk) var(--hi) var(--hi) var(--dk); box-shadow:inset 1px 1px var(--sh), inset -1px -1px var(--lt); padding:5px 13px 3px 15px}
+  .btn:focus-visible{outline:1px dotted #000; outline-offset:-6px}
 
-  /* ---- window ---- */
-  .window{max-width:1100px; margin:0 auto; padding:3px}
-  .titlebar{
-    display:flex; align-items:center; gap:6px; padding:2px 3px 2px 4px; height:20px;
-    background:linear-gradient(90deg,var(--title1),var(--title2)); color:#fff; font-weight:bold;
-  }
-  .titlebar .ico{width:16px; height:16px; flex:none}
-  .titlebar .t{flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .titlebar .wb{display:flex; gap:2px}
-  .titlebar .wb span{width:16px; height:14px; font:bold 10px/12px var(--font); text-align:center; color:#000; background:var(--face); border:1px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh)}
-  .menubar{display:flex; gap:2px; padding:2px 2px 1px; border-bottom:1px solid var(--sh); box-shadow:0 1px var(--hi)}
-  .menubar span{padding:2px 6px; cursor:default}
-  .menubar span u{text-decoration:underline}
-  .menubar span:hover{background:var(--title1); color:#fff}
-  .toolbar{display:flex; align-items:center; gap:6px; flex-wrap:wrap; padding:4px 4px; border-bottom:1px solid var(--sh); box-shadow:0 1px var(--hi)}
-  .toolbar .sep{width:2px; height:22px; border-left:1px solid var(--sh); border-right:1px solid var(--hi); margin:0 2px}
-  .toolbar label{display:flex; align-items:center; gap:6px; flex:1 1 220px; min-width:0}
-  .toolbar input{flex:1; min-width:0; font:inherit; padding:3px 4px; background:#fff; color:#000; outline:0;
-    border:2px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); box-shadow:inset 1px 1px var(--dk), inset -1px -1px var(--lt)}
-  .toolbar .views{display:flex; gap:0}
-  .toolbar .views .btn{padding:2px 6px}
-  .toolbar .views .btn svg{width:14px; height:12px; display:block}
+  /* cabecera */
+  header{background:linear-gradient(90deg,var(--navy),var(--blue)); color:#fff; border-bottom:2px solid var(--dk)}
+  header .wrap{display:flex; align-items:center; gap:16px; padding-top:22px; padding-bottom:22px}
+  header svg{width:56px; height:56px; flex:none}
+  header h1{margin:0; font:bold clamp(20px,4vw,30px)/1.1 var(--font); letter-spacing:.5px; text-shadow:2px 2px #000}
+  header p{margin:6px 0 0; max-width:64ch; color:#dfe8ff}
 
-  /* ---- workspace: slide sorter ---- */
-  .work{margin:4px; padding:14px 14px 20px; background:var(--sh); min-height:300px;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='2' height='2'><rect width='2' height='2' fill='%23808080'/><rect width='1' height='1' fill='%23a0a0a0'/><rect x='1' y='1' width='1' height='1' fill='%23a0a0a0'/></svg>")}
-  .intro{background:var(--face); padding:8px 10px; margin-bottom:14px; border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); box-shadow:inset -1px -1px var(--sh), inset 1px 1px var(--lt); display:flex; gap:10px; align-items:flex-start}
-  .intro svg{width:32px; height:32px; flex:none}
-  .intro p{margin:0}
-  .intro b{display:block; margin-bottom:2px}
-  .toc{display:flex; gap:4px; flex-wrap:wrap; margin:8px 0 0}
-  .toc .btn{padding:2px 8px}
+  .bar{display:flex; flex-wrap:wrap; gap:8px 12px; align-items:center; padding:14px 0 4px}
+  .bar label{display:flex; align-items:center; gap:8px; flex:1 1 260px; min-width:0; font-weight:bold}
+  .bar input{flex:1; min-width:0; font:inherit; font-weight:normal; padding:4px 5px; color:#000; outline:0}
+  .bar .count{white-space:nowrap}
+  .toc{display:flex; flex-wrap:wrap; gap:6px; padding:6px 0 0}
 
-  section{margin:0 0 18px}
-  section.hidden{display:none}
-  section h2{
-    margin:0 0 10px; font-size:12px; font-weight:bold; color:#fff; background:var(--title1);
-    padding:3px 8px; display:flex; justify-content:space-between; gap:8px;
-    border:1px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi);
-  }
-  section h2 small{font-weight:normal; color:#ffff66}
-  section > p{margin:-4px 0 10px; color:#fff; text-shadow:1px 1px #000}
-  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:16px 14px}
+  /* grupos */
+  fieldset{margin:22px 0 0; padding:14px 12px; border:2px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); box-shadow:inset 1px 1px 0 var(--hi), inset -1px -1px 0 var(--sh)}
+  fieldset.hidden{display:none}
+  legend{padding:0 6px; font-weight:bold; font-size:14px}
+  legend small{font-weight:normal; color:var(--dk)}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px}
 
-  /* slide thumbnail */
-  .card{display:block; text-decoration:none; color:inherit; cursor:pointer}
+  /* tarjetas */
+  .card{display:flex; flex-direction:column; gap:8px; padding:10px}
   .card.hidden{display:none}
-  .slide{
-    position:relative; aspect-ratio:4/3; padding:10px 12px; overflow:hidden;
-    background:linear-gradient(160deg,var(--slide1),var(--slide2)); color:var(--slide-text);
-    border:1px solid #000; box-shadow:3px 3px 0 #000;
-    font-family:Arial,Helvetica,sans-serif;
+  .card .top{display:flex; gap:10px; align-items:flex-start}
+  .card .ico{
+    width:36px; height:36px; flex:none; display:grid; place-items:center;
+    font:bold 13px/1 "Courier New",monospace; color:#fff; text-shadow:1px 1px #000;
+    border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi);
   }
-  .slide::before{content:""; position:absolute; left:0; right:0; top:0; height:7px; background:repeating-linear-gradient(90deg,#ffff66 0 12px,#ff8000 12px 24px,#c00000 24px 36px)}
-  .slide h3{margin:8px 0 0; padding-bottom:6px; font-size:15px; line-height:1.1; color:var(--slide-title); font-weight:bold; min-height:36px; text-shadow:1px 1px #000; border-bottom:2px solid #ffff66; box-shadow:0 4px 0 #ff8000}
-  .slide ul{margin:14px 0 0; padding:0 0 0 2px; list-style:none; font-size:11.5px; line-height:1.3}
-  .slide li{padding-left:12px; position:relative; margin-bottom:3px}
-  .slide li::before{content:""; position:absolute; left:0; top:4px; width:6px; height:6px; background:#ffff66}
-  .slide .num{position:absolute; right:8px; bottom:5px; font-size:9px; color:#9ad; font-family:Arial}
-  .cap{display:flex; justify-content:space-between; align-items:center; gap:6px; margin-top:7px; padding:0 2px; color:#000}
-  .cap .n{background:var(--face); padding:0 5px; border:1px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi); font-weight:bold}
-  .cap .tag{color:#fff; text-shadow:1px 1px #000}
-  .card:hover .slide, .card:focus-visible .slide{outline:2px dashed #000; outline-offset:3px}
-  .card:focus-visible{outline:0}
-  .card:hover .cap .n{background:var(--title1); color:#fff}
+  .card h3{margin:1px 0 0; font-size:13px; line-height:1.25}
+  .card .tag{display:block; font-size:11px; color:var(--dk); margin-top:2px}
+  .card p{margin:0; padding:6px 7px; font-size:12px; flex:1}
+  .card .act{display:flex; justify-content:flex-end}
+  .c-fis .ico{background:#800080}
+  .c-rad .ico{background:#008000}
+  .c-adq .ico{background:var(--teal)}
+  .c-spe .ico{background:var(--navy)}
+  .c-pet .ico{background:#800000}
+  .c-vis .ico{background:#808000}
 
-  .empty{display:none; background:var(--face); padding:10px; border:2px solid; border-color:var(--hi) var(--dk) var(--dk) var(--hi)}
+  .empty{display:none; margin:22px 0 0; padding:10px}
   .empty.show{display:block}
 
-  /* status bar */
-  .status{display:flex; gap:3px; padding:3px 3px 2px; margin-top:2px}
-  .status span{padding:2px 6px; border:1px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .status span:first-child{flex:1}
-
-  /* about dialog */
-  .dlg-wrap{position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(0,0,0,.15); z-index:9; padding:16px}
-  .dlg-wrap.show{display:flex}
-  .dlg{width:420px; max-width:100%; padding:3px}
-  .dlg .body{padding:14px 12px 12px; display:flex; gap:12px}
-  .dlg .body svg{width:32px; height:32px; flex:none}
-  .dlg .body p{margin:0 0 8px}
-  .dlg .body a{color:var(--title1)}
-  .dlg .ok{text-align:center; padding:0 0 12px}
-  .dlg .ok .btn{min-width:80px; text-align:center; outline:1px solid #000; outline-offset:-4px}
-
-  /* taskbar */
-  .taskbar{position:fixed; left:0; right:0; bottom:0; height:30px; padding:2px; display:flex; align-items:center; gap:4px; border-top:1px solid var(--hi); box-shadow:0 -1px var(--sh); z-index:5}
-  .taskbar .start{font-weight:bold; display:flex; align-items:center; gap:4px; padding:1px 6px 1px 4px}
-  .taskbar .start svg{width:16px; height:14px}
-  .taskbar .task{flex:1; max-width:220px; padding:2px 6px; font-weight:bold; border-color:var(--dk) var(--hi) var(--hi) var(--dk); box-shadow:inset 1px 1px var(--sh), inset -1px -1px var(--lt); background:#d4d4d4; background-image:repeating-conic-gradient(#c0c0c0 0 25%,#fff 0 50%); background-size:2px 2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-  .taskbar .clock{margin-left:auto; padding:2px 8px; border:1px solid; border-color:var(--sh) var(--hi) var(--hi) var(--sh)}
-  body{padding-bottom:46px}
+  footer{margin:28px 0 0; padding:14px 0 24px; border-top:1px solid var(--sh); box-shadow:inset 0 1px 0 var(--hi); font-size:12px}
+  footer .wrap{display:flex; flex-wrap:wrap; gap:6px 16px; justify-content:space-between}
 
   @media (max-width:520px){
-    body{padding:6px 6px 46px}
-    .work{padding:10px 8px 14px}
-    .grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:14px 10px}
-    .slide{aspect-ratio:auto; min-height:150px; padding-bottom:18px}
-    .slide h3{font-size:13px; min-height:0}
-    .slide ul{font-size:10.5px; margin-top:10px}
-    .menubar span:nth-child(n+4){display:none}
-    .toolbar .views{display:none}
-    .status span:nth-child(3){display:none}
+    header .wrap{padding-top:16px; padding-bottom:16px}
+    header svg{width:40px; height:40px}
+    .grid{grid-template-columns:1fr}
   }
 </style>
 </head>
 <body>
 
-<div class="window raised" role="main">
-  <div class="titlebar">
-    <svg class="ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="1" y="2" width="14" height="11" fill="#fff" stroke="#000"/><rect x="2" y="3" width="12" height="2" fill="#000080"/><rect x="4" y="7" width="8" height="1.5" fill="#ff8000"/><rect x="4" y="10" width="6" height="1.5" fill="#ff8000"/></svg>
-    <span class="t">Microsoft PowerPoint - [Simuladores de Medicina Nuclear.ppt]</span>
-    <span class="wb" aria-hidden="true"><span>_</span><span>□</span><span>×</span></span>
+<header>
+  <div class="wrap">
+    <svg viewBox="0 0 16 16" aria-hidden="true" shape-rendering="crispEdges">
+      <rect x="1" y="2" width="14" height="10" fill="#c0c0c0"/><rect x="1" y="2" width="14" height="1" fill="#fff"/><rect x="1" y="2" width="1" height="10" fill="#fff"/>
+      <rect x="14" y="2" width="1" height="10" fill="#404040"/><rect x="1" y="11" width="14" height="1" fill="#404040"/>
+      <rect x="3" y="4" width="10" height="6" fill="#000"/>
+      <rect x="7" y="5" width="2" height="4" fill="#ffff00"/><rect x="6" y="6" width="4" height="2" fill="#ffff00"/><rect x="7" y="6" width="2" height="2" fill="#ff0000"/>
+      <rect x="5" y="12" width="6" height="1" fill="#808080"/><rect x="3" y="13" width="10" height="2" fill="#c0c0c0"/><rect x="3" y="14" width="10" height="1" fill="#404040"/>
+    </svg>
+    <div>
+      <h1>Simuladores de Medicina Nuclear</h1>
+      <p>Herramientas docentes para practicar en el navegador: física de radiaciones, radiofarmacia, adquisición, procesamiento e interpretación de estudios. No requieren instalación y no envían datos a ningún servidor.</p>
+    </div>
   </div>
-  <div class="menubar" aria-hidden="true">
-    <span><u>A</u>rchivo</span><span><u>E</u>dición</span><span><u>V</u>er</span><span><u>I</u>nsertar</span><span>F<u>o</u>rmato</span><span><u>H</u>erramientas</span><span id="menu-help"><u>?</u></span>
-  </div>
-  <div class="toolbar">
-    <span class="views" aria-hidden="true">
-      <span class="btn" title="Vista Diapositiva"><svg viewBox="0 0 14 12"><rect x="1" y="1" width="12" height="10" fill="#fff" stroke="#000"/></svg></span>
-      <span class="btn" title="Vista Esquema"><svg viewBox="0 0 14 12"><rect x="2" y="2" width="10" height="1.5" fill="#000"/><rect x="4" y="5" width="8" height="1.5" fill="#000"/><rect x="4" y="8" width="8" height="1.5" fill="#000"/></svg></span>
-      <span class="btn pressed" title="Clasificador de diapositivas"><svg viewBox="0 0 14 12"><rect x="1" y="1" width="5" height="4" fill="#fff" stroke="#000"/><rect x="8" y="1" width="5" height="4" fill="#fff" stroke="#000"/><rect x="1" y="7" width="5" height="4" fill="#fff" stroke="#000"/><rect x="8" y="7" width="5" height="4" fill="#fff" stroke="#000"/></svg></span>
-    </span>
-    <span class="sep" aria-hidden="true"></span>
-    <label><span>Buscar:</span><input id="q" type="search" placeholder="renal, PET, gantry…" aria-label="Buscar un simulador" autocomplete="off"></label>
+</header>
+
+<main class="wrap">
+  <div class="bar">
+    <label for="q">Buscar:<input id="q" class="sunken" type="search" placeholder="renal, PET, gantry…" autocomplete="off"></label>
     <span class="btn" id="clear" role="button" tabindex="0">Borrar</span>
+    <span class="count" id="count"></span>
   </div>
+  <nav class="toc" aria-label="Secciones">
+    <a class="btn" href="#fisica">Física y radiofarmacia</a>
+    <a class="btn" href="#adquisicion">Adquisición y consolas</a>
+    <a class="btn" href="#spect">Procesamiento SPECT</a>
+    <a class="btn" href="#pet">PET/CT</a>
+    <a class="btn" href="#visores">Visores DICOM</a>
+  </nav>
 
-  <div class="work">
-    <div class="intro">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#000080" stroke="#fff" stroke-width="2"/><text x="16" y="23" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#fff">i</text></svg>
-      <div>
-        <p><b>Simuladores de Medicina Nuclear</b>Herramientas docentes para practicar en el navegador: física de radiaciones, radiofarmacia, adquisición, procesamiento e interpretación de estudios. Funcionan sin instalar nada y no envían datos a ningún servidor. Haga clic en una diapositiva para abrir el simulador.</p>
-        <nav class="toc" aria-label="Secciones">
-          <a class="btn" href="#fisica">Física y radiofarmacia</a>
-          <a class="btn" href="#adquisicion">Adquisición y consolas</a>
-          <a class="btn" href="#spect">Procesamiento SPECT</a>
-          <a class="btn" href="#pet">PET/CT</a>
-          <a class="btn" href="#visores">Visores DICOM</a>
-        </nav>
+  <fieldset id="fisica">
+    <legend>Física y radiofarmacia <small data-count></small></legend>
+    <div class="grid">
+      <div class="card raised c-fis" data-href="https://lucianotejadac.github.io/simulador-efecto-compton/" data-tags="compton fotón electrón klein-nishina dispersión física">
+        <div class="top"><span class="ico">Cγ</span><div><h3>Efecto Compton</h3><span class="tag">Física</span></div></div>
+        <p class="sunken">Energía del fotón disperso, ángulo del electrón liberado y secciones eficaces de Klein-Nishina, paso a paso.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-efecto-compton/">Abrir</a></div>
+      </div>
+      <div class="card raised c-fis" data-href="https://lucianotejadac.github.io/simulador-atenuacion-rx/" data-tags="atenuación rayos x aluminio cobre capa hemirreductora protección radiológica">
+        <div class="top"><span class="ico">μ</span><div><h3>Atenuación de rayos X</h3><span class="tag">Física</span></div></div>
+        <p class="sunken">Filtros de aluminio y cobre, capa hemirreductora y curvas de transmisión. Laboratorio de Protección Radiológica.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-atenuacion-rx/">Abrir</a></div>
+      </div>
+      <div class="card raised c-rad" data-href="https://lucianotejadac.github.io/simulador-generador-mo99-tc99m/" data-tags="generador molibdeno tecnecio equilibrio transitorio elución cohortes radiofarmacia">
+        <div class="top"><span class="ico">Mo</span><div><h3>Generador Mo-99 / Tc-99m</h3><span class="tag">Radiofarmacia</span></div></div>
+        <p class="sunken">Equilibrio transitorio explicado por cohortes horarias: elución, crecimiento del hijo y curvas de actividad.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-generador-mo99-tc99m/">Abrir</a></div>
+      </div>
+      <div class="card raised c-rad" data-href="https://lucianotejadac.github.io/simulador-marcaje/" data-tags="marcaje radiofármacos mdp sestamibi ec nanocoloide maa kit tecnecio radiofarmacia">
+        <div class="top"><span class="ico">Tc</span><div><h3>Marcaje de radiofármacos</h3><span class="tag">Radiofarmacia</span></div></div>
+        <p class="sunken">MDP, sestamibi, EC, nanocoloide de SAH y MAA: volúmenes, tiempos, temperatura y exposición del operador.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-marcaje/">Abrir</a></div>
+      </div>
+      <div class="card raised c-rad" data-href="https://lucianotejadac.github.io/simulador-control-calidad-eluido/" data-tags="control calidad eluido ph pureza radionucleídica radioquímica aluminio molibdeno radiofarmacia">
+        <div class="top"><span class="ico">QC</span><div><h3>Control de calidad del eluido</h3><span class="tag">Radiofarmacia</span></div></div>
+        <p class="sunken">Transparencia, pH, pureza radionucleídica, química y radioquímica del eluido, con sus límites de aceptación.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-control-calidad-eluido/">Abrir</a></div>
       </div>
     </div>
+  </fieldset>
 
-    <section id="fisica">
-      <h2>Física y radiofarmacia <small data-count></small></h2>
-      <div class="grid">
-        <a class="card" href="https://lucianotejadac.github.io/simulador-efecto-compton/" data-tags="compton fotón electrón klein-nishina dispersión física">
-          <div class="slide"><h3>Efecto Compton</h3><ul><li>Energía del fotón disperso</li><li>Ángulo del electrón liberado</li><li>Secciones eficaces de Klein-Nishina</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Física</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-atenuacion-rx/" data-tags="atenuación rayos x aluminio cobre capa hemirreductora protección radiológica">
-          <div class="slide"><h3>Atenuación de rayos X</h3><ul><li>Filtros de aluminio y cobre</li><li>Capa hemirreductora</li><li>Laboratorio de Protección Radiológica</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Física</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-generador-mo99-tc99m/" data-tags="generador molibdeno tecnecio equilibrio transitorio elución cohortes">
-          <div class="slide"><h3>Generador Mo-99 / Tc-99m</h3><ul><li>Equilibrio transitorio por cohortes</li><li>Elución y crecimiento del hijo</li><li>Curvas de actividad clic a clic</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Radiofarmacia</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-marcaje/" data-tags="marcaje radiofármacos mdp sestamibi ec nanocoloide maa kit tecnecio">
-          <div class="slide"><h3>Marcaje de radiofármacos</h3><ul><li>MDP, sestamibi, EC, nanocoloide, MAA</li><li>Volúmenes, tiempos y temperatura</li><li>Exposición del operador</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Radiofarmacia</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-control-calidad-eluido/" data-tags="control calidad eluido ph pureza radionucleídica radioquímica aluminio molibdeno">
-          <div class="slide"><h3>Control de calidad del eluido</h3><ul><li>Transparencia y pH</li><li>Pureza radionucleídica y química</li><li>Pureza radioquímica</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Radiofarmacia</span></div>
-        </a>
+  <fieldset id="adquisicion">
+    <legend>Adquisición y consolas <small data-count></small></legend>
+    <div class="grid">
+      <div class="card raised c-adq" data-href="https://lucianotejadac.github.io/simulador-gantry-3d/" data-tags="gantry 3d posicionamiento gammacámara spect ct detectores órbita control remoto">
+        <div class="top"><span class="ico">3D</span><div><h3>Posicionamiento del gantry 3D</h3><span class="tag">SPECT/CT</span></div></div>
+        <p class="sunken">Control remoto de una gammacámara SPECT/CT en 3D: camilla, detectores, órbita y adquisición.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-gantry-3d/">Abrir</a></div>
       </div>
-    </section>
-
-    <section id="adquisicion">
-      <h2>Adquisición y consolas <small data-count></small></h2>
-      <div class="grid">
-        <a class="card" href="https://lucianotejadac.github.io/simulador-gantry-3d/" data-tags="gantry 3d posicionamiento gammacámara spect ct detectores órbita control remoto">
-          <div class="slide"><h3>Posicionamiento del gantry 3D</h3><ul><li>Gammacámara SPECT/CT en 3D</li><li>Camilla, detectores y órbita</li><li>Adquisición gammagráfica</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">SPECT/CT</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-cardiaco-spect-ct/" data-tags="cardíaco spect ct adquisición gantry 3d gatillado">
-          <div class="slide"><h3>Adquisición cardíaca SPECT/CT</h3><ul><li>Perfusión miocárdica con gantry 3D</li><li>Posición, órbita y gatillado</li><li>CT de atenuación</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">SPECT/CT</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/consola-tc/" data-tags="consola tc tomografía computada ct parámetros kv mas pitch">
-          <div class="slide"><h3>Consola TC</h3><ul><li>Planificación del estudio</li><li>Parámetros técnicos</li><li>Sobre un caso real</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">CT</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/consola-pet/" data-tags="consola pet ct camas adquisición reconstrucción osem fdg">
-          <div class="slide"><h3>Consola PET</h3><ul><li>Reproduce las camas del estudio</li><li>Parámetros de reconstrucción</li><li>Caso PET/CT real</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">PET/CT</span></div>
-        </a>
+      <div class="card raised c-adq" data-href="https://lucianotejadac.github.io/simulador-cardiaco-spect-ct/" data-tags="cardíaco spect ct adquisición gantry 3d gatillado">
+        <div class="top"><span class="ico">Ca</span><div><h3>Adquisición cardíaca SPECT/CT</h3><span class="tag">SPECT/CT</span></div></div>
+        <p class="sunken">Protocolo de perfusión miocárdica con gantry 3D: posición, órbita, gatillado y CT de atenuación.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-cardiaco-spect-ct/">Abrir</a></div>
       </div>
-    </section>
-
-    <section id="spect">
-      <h2>Procesamiento SPECT y gammagrafía <small data-count></small></h2>
-      <div class="grid">
-        <a class="card" href="https://lucianotejadac.github.io/spect-lab-95/" data-tags="spect reconstrucción fbp osem filtros registro ct windows 95">
-          <div class="slide"><h3>SPECT Lab 95</h3><ul><li>Retroproyección filtrada y filtros</li><li>OSEM y registro con CT</li><li>Exportación DICOM</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">SPECT</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-cardiaco/" data-tags="cardíaco perfusión miocárdica reorientación eje corto mapa polar gatillado">
-          <div class="slide"><h3>SPECT cardíaco de perfusión</h3><ul><li>Reorientación del corazón</li><li>Cortes de eje corto y largo</li><li>Mapa polar y gatillado</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Cardíaco</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/cardiaco-movil/" data-tags="cardíaco móvil tablet tutorial perfusión isquemia normal">
-          <div class="slide"><h3>SPECT cardíaco · versión móvil</h3><ul><li>Para tablet apaisada</li><li>Casos con tutorial</li><li>Preguntas guiadas</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Cardíaco</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-tiroides/" data-tags="tiroides cintigrama tiroideo panorámica pertecnectato">
-          <div class="slide"><h3>Cintigrama tiroideo</h3><ul><li>Editor de página panorámica</li><li>Ventana y marcadores</li><li>Composición de la lámina</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Tiroides</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-renograma/" data-tags="renograma mag3 renal dinámico curvas regiones de interés">
-          <div class="slide"><h3>Renograma MAG3</h3><ul><li>Cintigrama renal dinámico</li><li>Regiones de interés</li><li>Curvas y parámetros de función</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Renal</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-dmsa/" data-tags="dmsa renal estático función relativa cicatrices">
-          <div class="slide"><h3>Cintigrama renal DMSA</h3><ul><li>Cintigrama renal estático</li><li>Función renal relativa</li><li>Evaluación cortical</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Renal</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-cintigrafia-osea/" data-tags="ósea hueso cintigrafía mdp cuerpo entero visor dicom composición">
-          <div class="slide"><h3>Cintigrafía ósea</h3><ul><li>Visor DICOM local</li><li>Composición de cuerpo entero</li><li>Tutoriales por caso</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Ósea</span></div>
-        </a>
+      <div class="card raised c-adq" data-href="https://lucianotejadac.github.io/consola-tc/" data-tags="consola tc tomografía computada ct parámetros kv mas pitch">
+        <div class="top"><span class="ico">TC</span><div><h3>Consola TC</h3><span class="tag">CT</span></div></div>
+        <p class="sunken">Consola de adquisición de tomografía computada: planificación del estudio y parámetros técnicos sobre un caso real.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/consola-tc/">Abrir</a></div>
       </div>
-    </section>
-
-    <section id="pet">
-      <h2>PET/CT <small data-count></small></h2>
-      <div class="grid">
-        <a class="card" href="https://lucianotejadac.github.io/simulador-ficha-clinica-pet/" data-tags="ficha clínica pet mesa redonda archivo indicación fdg">
-          <div class="slide"><h3>Ficha clínica PET</h3><ul><li>Mesa redonda sobre el archivo clínico</li><li>Indicación y antecedentes</li><li>Preparación del paciente</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">PET/CT</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/consola-pet/" data-tags="consola pet ct camas adquisición reconstrucción osem fdg">
-          <div class="slide"><h3>Consola PET</h3><ul><li>Reproduce las camas del estudio</li><li>Parámetros de reconstrucción</li><li>Caso PET/CT real</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">PET/CT</span></div>
-        </a>
-      </div>
-    </section>
-
-    <section id="visores">
-      <h2>Visores DICOM <small data-count></small></h2>
-      <div class="grid">
-        <a class="card" href="https://lucianotejadac.github.io/visor_dicom/" data-tags="volumina visor dicom mpr fusión spect ct mip vrt cortes exportar">
-          <div class="slide"><h3>Volumina · Visor DICOM</h3><ul><li>Reconstrucción multiplanar</li><li>Fusión SPECT/CT, MIP y VRT</li><li>Cortes exportables como DICOM</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Visor</span></div>
-        </a>
-        <a class="card" href="https://lucianotejadac.github.io/simulador-cintigrafia-osea/" data-tags="ósea hueso cintigrafía mdp cuerpo entero visor dicom composición">
-          <div class="slide"><h3>Visualizador de medicina nuclear</h3><ul><li>Visor DICOM planar</li><li>Composición de imágenes</li><li>Casos guiados</li></ul></div>
-          <div class="cap"><span class="n"></span><span class="tag">Visor</span></div>
-        </a>
-      </div>
-    </section>
-
-    <p class="empty" id="empty">No hay diapositivas que coincidan con la búsqueda.</p>
-  </div>
-
-  <div class="status" aria-live="polite">
-    <span id="count"></span>
-    <span>Clasificador de diapositivas</span>
-    <span>Plantilla: Medicina Nuclear 95</span>
-  </div>
-</div>
-
-<div class="dlg-wrap" id="about" role="dialog" aria-modal="true" aria-labelledby="about-title">
-  <div class="dlg raised">
-    <div class="titlebar"><span class="t" id="about-title">Acerca de Simuladores de Medicina Nuclear</span><span class="wb" aria-hidden="true"><span>×</span></span></div>
-    <div class="body">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="#000080" stroke="#fff" stroke-width="2"/><text x="16" y="23" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="20" fill="#fff">i</text></svg>
-      <div>
-        <p><b>Simuladores de Medicina Nuclear</b><br>Material docente elaborado por Luciano Tejada.</p>
-        <p>Cada simulador es una página independiente de código abierto, publicada en GitHub Pages. Esta página solo los reúne.</p>
-        <p>Código: <a href="https://github.com/lucianotejadac">github.com/lucianotejadac</a></p>
-        <p>Memoria disponible: 640 KB. Suficiente para todos.</p>
+      <div class="card raised c-adq" data-href="https://lucianotejadac.github.io/consola-pet/" data-tags="consola pet ct camas adquisición reconstrucción osem fdg">
+        <div class="top"><span class="ico">PET</span><div><h3>Consola PET</h3><span class="tag">PET/CT</span></div></div>
+        <p class="sunken">Consola de adquisición PET/CT: reproduce las camas del estudio y muestra los parámetros de reconstrucción.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/consola-pet/">Abrir</a></div>
       </div>
     </div>
-    <div class="ok"><span class="btn" id="about-ok" role="button" tabindex="0">Aceptar</span></div>
-  </div>
-</div>
+  </fieldset>
 
-<div class="taskbar raised" aria-hidden="true">
-  <span class="btn start"><svg viewBox="0 0 16 14"><rect x="1" y="1" width="6" height="5" fill="#ff0000"/><rect x="9" y="1" width="6" height="5" fill="#00a000"/><rect x="1" y="8" width="6" height="5" fill="#0000ff"/><rect x="9" y="8" width="6" height="5" fill="#ffff00"/></svg>Inicio</span>
-  <span class="task">Microsoft PowerPoint - [Simul...</span>
-  <span class="clock" id="clock">00:00</span>
-</div>
+  <fieldset id="spect">
+    <legend>Procesamiento SPECT y gammagrafía <small data-count></small></legend>
+    <div class="grid">
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/spect-lab-95/" data-tags="spect reconstrucción fbp osem filtros registro ct">
+        <div class="top"><span class="ico">95</span><div><h3>SPECT Lab 95</h3><span class="tag">SPECT</span></div></div>
+        <p class="sunken">Reconstrucción tomográfica: retroproyección filtrada, filtros, OSEM y registro con CT, con exportación DICOM.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/spect-lab-95/">Abrir</a></div>
+      </div>
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/simulador-cardiaco/" data-tags="cardíaco perfusión miocárdica reorientación eje corto mapa polar gatillado">
+        <div class="top"><span class="ico">Ca</span><div><h3>SPECT cardíaco de perfusión</h3><span class="tag">Cardíaco</span></div></div>
+        <p class="sunken">Reorientación, cortes de eje corto y largo, mapa polar y gatillado.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-cardiaco/">Abrir</a></div>
+      </div>
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/cardiaco-movil/" data-tags="cardíaco móvil tablet tutorial perfusión isquemia normal">
+        <div class="top"><span class="ico">Tab</span><div><h3>SPECT cardíaco · versión móvil</h3><span class="tag">Cardíaco</span></div></div>
+        <p class="sunken">Tutorial de perfusión miocárdica para tablet apaisada, con casos y preguntas guiadas.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/cardiaco-movil/">Abrir</a></div>
+      </div>
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/simulador-tiroides/" data-tags="tiroides cintigrama tiroideo panorámica pertecnectato">
+        <div class="top"><span class="ico">Ti</span><div><h3>Cintigrama tiroideo</h3><span class="tag">Tiroides</span></div></div>
+        <p class="sunken">Editor de página panorámica: ventana, marcadores y composición de la lámina.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-tiroides/">Abrir</a></div>
+      </div>
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/simulador-renograma/" data-tags="renograma mag3 renal dinámico curvas regiones de interés">
+        <div class="top"><span class="ico">R</span><div><h3>Renograma MAG3</h3><span class="tag">Renal</span></div></div>
+        <p class="sunken">Cintigrama renal dinámico: regiones de interés, curvas renográficas y parámetros de función.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-renograma/">Abrir</a></div>
+      </div>
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/simulador-dmsa/" data-tags="dmsa renal estático función relativa cicatrices">
+        <div class="top"><span class="ico">D</span><div><h3>Cintigrama renal DMSA</h3><span class="tag">Renal</span></div></div>
+        <p class="sunken">Cintigrama renal estático: proyecciones, función renal relativa y evaluación cortical.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-dmsa/">Abrir</a></div>
+      </div>
+      <div class="card raised c-spe" data-href="https://lucianotejadac.github.io/simulador-cintigrafia-osea/" data-tags="ósea hueso cintigrafía mdp cuerpo entero visor dicom composición">
+        <div class="top"><span class="ico">Os</span><div><h3>Cintigrafía ósea</h3><span class="tag">Ósea</span></div></div>
+        <p class="sunken">Visor DICOM local con composición de imágenes de cuerpo entero y tutoriales por caso.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-cintigrafia-osea/">Abrir</a></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="pet">
+    <legend>PET/CT <small data-count></small></legend>
+    <div class="grid">
+      <div class="card raised c-pet" data-href="https://lucianotejadac.github.io/simulador-ficha-clinica-pet/" data-tags="ficha clínica pet mesa redonda archivo indicación fdg">
+        <div class="top"><span class="ico">Fx</span><div><h3>Ficha clínica PET</h3><span class="tag">PET/CT</span></div></div>
+        <p class="sunken">Mesa redonda sobre el archivo clínico: indicación, antecedentes y preparación del paciente.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-ficha-clinica-pet/">Abrir</a></div>
+      </div>
+      <div class="card raised c-pet" data-href="https://lucianotejadac.github.io/consola-pet/" data-tags="consola pet ct camas adquisición reconstrucción osem fdg">
+        <div class="top"><span class="ico">PET</span><div><h3>Consola PET</h3><span class="tag">PET/CT</span></div></div>
+        <p class="sunken">Consola de adquisición PET/CT: reproduce las camas del estudio y muestra los parámetros de reconstrucción.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/consola-pet/">Abrir</a></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset id="visores">
+    <legend>Visores DICOM <small data-count></small></legend>
+    <div class="grid">
+      <div class="card raised c-vis" data-href="https://lucianotejadac.github.io/visor_dicom/" data-tags="volumina visor dicom mpr fusión spect ct mip vrt cortes exportar">
+        <div class="top"><span class="ico">Vo</span><div><h3>Volumina · Visor DICOM</h3><span class="tag">Visor</span></div></div>
+        <p class="sunken">Reconstrucción multiplanar, fusión SPECT/CT, MIP y VRT, y cortes exportables como serie DICOM.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/visor_dicom/">Abrir</a></div>
+      </div>
+      <div class="card raised c-vis" data-href="https://lucianotejadac.github.io/simulador-cintigrafia-osea/" data-tags="ósea hueso cintigrafía mdp cuerpo entero visor dicom composición">
+        <div class="top"><span class="ico">DCM</span><div><h3>Visualizador de medicina nuclear</h3><span class="tag">Visor</span></div></div>
+        <p class="sunken">Visor DICOM planar para estudios de medicina nuclear, con composición de imágenes y casos guiados.</p>
+        <div class="act"><a class="btn" href="https://lucianotejadac.github.io/simulador-cintigrafia-osea/">Abrir</a></div>
+      </div>
+    </div>
+  </fieldset>
+
+  <p class="empty raised" id="empty">No hay simuladores que coincidan con la búsqueda.</p>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Material docente de medicina nuclear · Luciano Tejada</span>
+    <span>Código abierto en <a href="https://github.com/lucianotejadac">github.com/lucianotejadac</a></span>
+  </div>
+</footer>
 
 <script>
 (function(){
   var q = document.getElementById('q');
   var count = document.getElementById('count');
   var empty = document.getElementById('empty');
-  var sections = Array.prototype.slice.call(document.querySelectorAll('section'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('fieldset'));
   var cards = Array.prototype.slice.call(document.querySelectorAll('.card'));
-
   function norm(s){ return (s||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,''); }
-  cards.forEach(function(c,i){
-    c._hay = norm(c.textContent + ' ' + (c.getAttribute('data-tags')||''));
-    c.querySelector('.cap .n').textContent = i + 1;
-  });
-  var total = (function(){ var s={}; cards.forEach(function(c){ s[c.getAttribute('href')]=1; }); return Object.keys(s).length; })();
-
+  cards.forEach(function(c){ c._hay = norm(c.textContent + ' ' + (c.getAttribute('data-tags')||'')); });
+  function uniq(list){ var s={}; list.forEach(function(c){ s[c.getAttribute('data-href')]=1; }); return Object.keys(s).length; }
+  var total = uniq(cards);
   function apply(){
     var t = norm(q.value.trim());
-    var seen = {};
-    cards.forEach(function(c){
-      var hide = t !== '' && c._hay.indexOf(t) === -1;
-      c.classList.toggle('hidden', hide);
-      if(!hide) seen[c.getAttribute('href')] = 1;
+    cards.forEach(function(c){ c.classList.toggle('hidden', t !== '' && c._hay.indexOf(t) === -1); });
+    groups.forEach(function(g){
+      var vis = g.querySelectorAll('.card:not(.hidden)').length;
+      g.classList.toggle('hidden', vis === 0);
+      g.querySelector('[data-count]').textContent = '(' + vis + ')';
     });
-    sections.forEach(function(s){
-      var vis = s.querySelectorAll('.card:not(.hidden)').length;
-      s.classList.toggle('hidden', vis === 0);
-      s.querySelector('[data-count]').textContent = vis + (vis === 1 ? ' diapositiva' : ' diapositivas');
-    });
-    var n = Object.keys(seen).length;
-    count.textContent = t ? n + ' de ' + total + ' simuladores' : total + ' simuladores en ' + cards.length + ' diapositivas';
+    var n = uniq(cards.filter(function(c){ return !c.classList.contains('hidden'); }));
+    count.textContent = t ? n + ' de ' + total + ' simuladores' : total + ' simuladores';
     empty.classList.toggle('show', n === 0);
   }
   q.addEventListener('input', apply);
@@ -353,21 +284,6 @@
   clear.addEventListener('click', function(){ q.value=''; apply(); q.focus(); });
   clear.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); clear.click(); } });
   apply();
-
-  // Acerca de
-  var about = document.getElementById('about');
-  function openAbout(){ about.classList.add('show'); document.getElementById('about-ok').focus(); }
-  function closeAbout(){ about.classList.remove('show'); }
-  document.getElementById('menu-help').addEventListener('click', openAbout);
-  document.getElementById('about-ok').addEventListener('click', closeAbout);
-  document.getElementById('about-ok').addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); closeAbout(); } });
-  about.addEventListener('click', function(e){ if(e.target===about) closeAbout(); });
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeAbout(); });
-
-  // Reloj de la barra de tareas
-  var clock = document.getElementById('clock');
-  function tick(){ var d=new Date(); clock.textContent = ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2); }
-  tick(); setInterval(tick, 15000);
 })();
 </script>
 </body>
